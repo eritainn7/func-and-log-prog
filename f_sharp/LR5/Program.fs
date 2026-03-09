@@ -29,3 +29,11 @@ let main argv=
     printfn "%f" volume
 
     0
+
+//Задание 5 Рекурсия вниз хвостовая
+let SumDigits num =
+    let rec loop num sum_digits =
+        match compare num 10 with
+        | -1 -> sum_digits + num % 10
+        | _ -> loop ((num - num % 10) / 10) (sum_digits + num % 10)
+    loop num 0
