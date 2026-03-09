@@ -30,6 +30,12 @@ let main argv=
 
     0
 
+//Задание 4 Рекурсия вверх
+let rec UpSumDigits num =
+    match compare num 10 with
+    | -1 -> num % 10
+    | _ -> (num % 10) + UpSumDigits((num - num % 10) / 10) 
+
 //Задание 5 Рекурсия вниз хвостовая
 let SumDigits num =
     let rec loop num sum_digits =
