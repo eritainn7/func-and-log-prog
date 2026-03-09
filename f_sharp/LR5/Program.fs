@@ -6,8 +6,10 @@ let printHelloWorld() = printfn "Hello, World!1"
 //Задание 2
 let SolveQuadEq a b c =
     let D = b * b - 4.0 * a * c
-    
-    [(-b + sqrt D)/(2.0 * a); (-b - sqrt D)/(2.0 * a)]
+    match compare D 0 with
+    | -1 -> []
+    | 0 -> [-b/(2.0 * a)]
+    | 1 -> [(-b + sqrt D)/(2.0 * a); (-b - sqrt D)/(2.0 * a)]
 
 //Задание 3
 open System
