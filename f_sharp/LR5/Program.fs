@@ -14,7 +14,7 @@ let SolveQuadEq a b c =
 //Задание 3
 open System
 
-[<EntryPoint>]
+// [<EntryPoint>]
 let main argv=
     let RoundSquare r = Math.PI * r * r
     
@@ -84,3 +84,10 @@ let G x = x % 2 = 0
 printfn "%i" (Handler 15 F G)
 printfn "%i" (Handler 2 F G)
 printfn "%i" (Handler 7 F G)
+
+//Задание 11
+let isLoveLang lang =
+    match lang with
+    | lang when lang = "F#" || lang = "Prolog" -> printfn "Подлиза вы!))"
+    | _ -> printfn "А почему?"
+isLoveLang "F#"    
