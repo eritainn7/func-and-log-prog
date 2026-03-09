@@ -61,3 +61,8 @@ printfn "%i" (SumDigitORfact false 5) // 120
 printfn "%i" (SumDigitORfact true 5) // 5
 printfn "%i" (SumDigitORfact false 16) // 2004189184
 printfn "%i" (SumDigitORfact true 16) // 7
+
+//Задание 7
+let HandlingNum num handling_func flag = 
+    let flag = (flag = 1)
+    handling_func flag num
