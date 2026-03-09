@@ -66,3 +66,9 @@ printfn "%i" (SumDigitORfact true 16) // 7
 let HandlingNum num handling_func flag = 
     let flag = (flag = 1)
     handling_func flag num
+
+//Задание 9
+let Handler num (F: int -> int -> int) (G: int -> bool) =
+    match G num with
+    | true -> F num 3
+    | _ -> F 3 num
