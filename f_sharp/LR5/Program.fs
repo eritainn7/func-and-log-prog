@@ -72,3 +72,15 @@ let Handler num (F: int -> int -> int) (G: int -> bool) =
     match G num with
     | true -> F num 3
     | _ -> F 3 num
+
+//Задание 10
+let F x y = 
+    match compare x y with
+    | -1 -> fact x
+    | _ -> fact y
+
+let G x = x % 2 = 0
+
+printfn "%i" (Handler 15 F G)
+printfn "%i" (Handler 2 F G)
+printfn "%i" (Handler 7 F G)
