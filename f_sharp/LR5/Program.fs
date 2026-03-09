@@ -43,3 +43,21 @@ let SumDigits num =
         | -1 -> sum_digits + num % 10
         | _ -> loop ((num - num % 10) / 10) (sum_digits + num % 10)
     loop num 0
+
+//Задание 6
+let fact num =
+    let rec loop num acc =
+        match compare num 2 with
+        | -1 -> acc
+        | _ -> loop (num - 1) (num * acc)
+    loop num 1
+
+let SumDigitORfact flag =
+    match flag with
+    | false -> fact
+    | _ -> SumDigits
+
+printfn "%i" (SumDigitORfact false 5) // 120
+printfn "%i" (SumDigitORfact true 5) // 5
+printfn "%i" (SumDigitORfact false 16) // 2004189184
+printfn "%i" (SumDigitORfact true 16) // 7
