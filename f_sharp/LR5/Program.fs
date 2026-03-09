@@ -1,5 +1,5 @@
 ﻿// Задание1
-let printHelloWorld = printfn "Hello, World!"
+let printHelloWorld() = printfn "Hello, World!1"
 
 
 
