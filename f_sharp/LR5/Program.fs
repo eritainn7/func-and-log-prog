@@ -91,3 +91,10 @@ let isLoveLang lang =
     | lang when lang = "F#" || lang = "Prolog" -> printfn "Подлиза вы!))"
     | _ -> printfn "А почему?"
 isLoveLang "F#"    
+
+//Задание 12 Каррирование и суперпозиция
+let main1 func arg=
+    func arg
+//Каррирование
+let MiddlewareFunc = main1 isLoveLang
+MiddlewareFunc "Python"
