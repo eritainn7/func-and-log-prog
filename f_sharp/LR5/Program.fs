@@ -131,3 +131,23 @@ let traverseCoprimeDigits n f init condition =
     |> List.fold f init
 
 printfn "%i" (traverseCoprimeDigits 12345 (+) 0 (fun _ -> true))
+
+//Задание 16
+let isEvenAndNotCoprime n x =
+    let evenPart = (x + 1) % 2 
+    let coprimePart = 
+        match gcd x n with
+        | 1 -> 1 
+        | _ -> 0 
+    (1 - evenPart) * (1 - coprimePart) 
+
+let countEvenNotCoprime n =
+    let rec loop acc current =
+        match current > n with
+        | true -> acc
+        | false -> 
+            let increment = (isEvenAndNotCoprime n current)
+            loop (acc + increment) (current + 1)
+    loop 0 1
+
+printfn "%i" (countEvenNotCoprime 416)
