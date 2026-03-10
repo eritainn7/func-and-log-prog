@@ -113,3 +113,19 @@ let traverseCoprimesCompact n f init =
 let eulerPhi n =
     traverseCoprimesCompact n (fun acc _ -> acc + 1) 0
 printfn "%i" (eulerPhi 12)
+
+//Задание 15
+let getDigits n =
+    let rec loop acc remaining =
+        if remaining = 0 then acc
+        else loop (abs (remaining % 10) :: acc) (remaining / 10)
+    loop [] n
+
+let traverseCoprimeDigits n f init condition =
+    n
+    |> getDigits
+    |> List.distinct
+    |> List.filter (fun d -> condition d && gcd d n = 1)
+    |> List.fold f init
+
+printfn "%i" (traverseCoprimeDigits 12345 (+) 0 (fun _ -> true))
