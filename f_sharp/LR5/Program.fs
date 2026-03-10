@@ -108,3 +108,8 @@ let traverseCoprimesCompact n f init =
     [1..n-1] 
     |> List.filter (fun x -> gcd x n = 1)
     |> List.fold f init
+
+//Задание 14
+let eulerPhi n =
+    traverseCoprimesCompact n (fun acc _ -> acc + 1) 0
+printfn "%i" (eulerPhi 12)
