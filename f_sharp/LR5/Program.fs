@@ -98,3 +98,13 @@ let main1 func arg=
 //Каррирование
 let MiddlewareFunc = main1 isLoveLang
 MiddlewareFunc "Python"
+
+//Задание 13
+let rec gcd a b =
+    if b = 0 then a
+    else gcd b (a % b)
+
+let traverseCoprimesCompact n f init =
+    [1..n-1] 
+    |> List.filter (fun x -> gcd x n = 1)
+    |> List.fold f init
