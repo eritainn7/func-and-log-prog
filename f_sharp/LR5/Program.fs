@@ -101,8 +101,9 @@ MiddlewareFunc "Python"
 
 //Задание 13
 let rec gcd a b =
-    if b = 0 then a
-    else gcd b (a % b)
+    match b with
+    | 0 -> a
+    | _ -> gcd b (a % b)
 
 let traverseCoprimesCompact n f init =
     [1..n-1] 
@@ -117,8 +118,9 @@ printfn "%i" (eulerPhi 12)
 //Задание 15
 let getDigits n =
     let rec loop acc remaining =
-        if remaining = 0 then acc
-        else loop (abs (remaining % 10) :: acc) (remaining / 10)
+        match remaining with
+        | 0 -> acc
+        | _ -> loop (abs (remaining % 10) :: acc) (remaining / 10)
     loop [] n
 
 let traverseCoprimeDigits n f init condition =
